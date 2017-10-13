@@ -25,9 +25,9 @@ The `data_sources` section uses regex-like commands to point to different spots 
 Example:
 
 	data_sources:
-		source1: /path/to/raw/data/{sample_name}_{sample_type}.bam
-		source2: /path/from/collaborator/weirdNamingScheme_{external_id}.fastq
-		source3: ${HOME}/{test_id}.fastq
+	  source1: /path/to/raw/data/{sample_name}_{sample_type}.bam
+	  source2: /path/from/collaborator/weirdNamingScheme_{external_id}.fastq
+	  source3: ${HOME}/{test_id}.fastq
 
 For more details, see [derived columns](/docs/derived_columns).
 
@@ -38,7 +38,7 @@ For more details, see [derived columns](/docs/derived_columns).
 Example:
 
 ```
-  derived_columns: [read1, read2, data_1]
+derived_columns: [read1, read2, data_1]
 ```
 
 For more details, see [derived columns](/docs/derived_columns).
@@ -51,12 +51,11 @@ For more details, see [derived columns](/docs/derived_columns).
 Example:
 
 ```
-
-  implied_columns:
-    organism:
-      human:
-        genome: "hg38"
-        macs_genome_size: "hs"
+implied_columns:
+  organism:
+    human:
+      genome: "hg38"
+      macs_genome_size: "hs"
 ```
 
 For more details, see [implied columns](/docs/implied_columns).
@@ -70,16 +69,22 @@ Subprojects are useful to define multiple similar projects within a single proje
 For example:
 
 ```
-	subprojects:
-	  diverse:
-		metadata:
-		  sample_annotation: psa_rrbs_diverse.csv
-	  cancer:
-		metadata:
-		  sample_annotation: psa_rrbs_intracancer.csv
+subprojects:
+  diverse:
+	metadata:
+	  sample_annotation: psa_rrbs_diverse.csv
+  cancer:
+	metadata:
+	  sample_annotation: psa_rrbs_intracancer.csv
 ```
 
 This project would specify 2 subprojects that have almost the exact same settings, but change only their ``metadata.sample_annotation`` parameter (so, each subproject points to a different sample annotation sheet). Rather than defining two 99% identical project config files, you can use a subproject. 
+
+
+# Looper sections
+
+The following sections are specific to `looper`, which is one tool in `pepkit`. These sections are optional and only useful if you're planning to use `looper` to submit pipelines for your project.
+
 
 ### Project config section: pipeline_config
 
@@ -88,18 +93,17 @@ Occasionally, a particular project needs to run a particular flavor of a pipelin
 Example:
 
 ```
-	pipeline_config:
-	  # pipeline configuration files used in project.
-	  # Key string must match the _name of the pipeline script_ (including extension)
-	  # Relative paths are relative to this project config file.
-	  # Default (null) means use the generic config for the pipeline.
-	  rrbs.py: null
-	  # Or you can point to a specific config to be used in this project:
-	  wgbs.py: wgbs_flavor1.yaml
+pipeline_config:
+  # pipeline configuration files used in project.
+  # Key string must match the _name of the pipeline script_ (including extension)
+  # Relative paths are relative to this project config file.
+  # Default (null) means use the generic config for the pipeline.
+  rrbs.py: null
+  # Or you can point to a specific config to be used in this project:
+  wgbs.py: wgbs_flavor1.yaml
 ```
 
 This will instruct `looper` to pass `-C wgbs_flavor1.yaml` to any invocations of wgbs.py (for this project only). Your pipelines will need to understand the config file (which will happen automatically if you use pypiper).
-
 
 ### Project config section: pipeline_args
 
@@ -108,11 +112,11 @@ Sometimes a project requires tweaking a pipeline, but does not justify a complet
 Example:
 
 ```
-	pipeline_args:
-	  rrbs.py:  # pipeline identifier: must match the name of the pipeline script
-		# here, include all project-specific args for this pipeline
-		"--flavor": simple
-		"--flag": null
+pipeline_args:
+  rrbs.py:  # pipeline identifier: must match the name of the pipeline script
+	# here, include all project-specific args for this pipeline
+	"--flavor": simple
+	"--flag": null
 ```
 
 For flag-like options (options without parameters), you should set the value to the yaml keyword ``null`` (which means no value). Looper will pass the key to the pipeline without a value. The above specification will now pass ``--flavor=simple`` and ``--flag`` (no parameter) whenever ``rrbs.py`` is invoked -- for this project only. This is a way to control (and record!) project-level pipeline arg tuning. The only keyword here is `pipeline_args`; all other variables in this section are specific to particular pipelines, command-line arguments, and argument values.
@@ -128,7 +132,7 @@ You can specify project-specific compute settings in a ``compute`` section. Howe
 ```
 
 
-### Project config complete example
+# Project config example
 
 
  Here's an example. Additional fields can be added as well and will be ignored.
