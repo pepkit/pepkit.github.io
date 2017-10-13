@@ -5,7 +5,7 @@ description: >
   Jekyll Template for Project Websites
   providing documentation and blog post pages.
 
-baseurl: "/" # the subpath of your site, e.g. /blog/
+baseurl: "" # the subpath of your site, e.g. /blog/
 url: https://pepkit.github.io/ # the base hostname & protocol for your site
 git_address: https://github.com/pepkit/pepkit.github.io
 git_edit_address: https://github.com/pepkit/pepkit/blob/master
@@ -17,7 +17,7 @@ bootwatch: paper
 # Build settings
 markdown: kramdown
 highlighter: rouge
-gems:
+plugins:
   - jekyll-feed
   - jekyll-redirect-from
   - jekyll-seo-tag
