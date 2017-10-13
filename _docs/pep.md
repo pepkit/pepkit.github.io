@@ -1,6 +1,5 @@
 ---
-title: PEP format
-permalink: /docs/pep/
+title: pep
 ---
 
 The format is simple and modular, so you only need to define the components you plan to use. You need to supply 2 files:

@@ -1,12 +1,18 @@
-- title: Getting Started
+- title: Creating a PEP
   docs:
   - home
-  - themes
-  - pep
-  - customization
+  - simple_example
+  - sample_annotation
+  - project_config
 
-- title: Examples
+- title: Advanced PEP features
   docs:
-  - cheatsheet
-  - font-awesome
-  - bootstrap
+  - derived_columns
+  - implied_columns
+
+- title: Reading a PEP
+  docs:
+  - python_package
+  - R_package
+  - looper
+  - other_tools
