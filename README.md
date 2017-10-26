@@ -21,3 +21,6 @@ bundle exec jekyll serve
 ## License
 
 Released under [the MIT license](LICENSE).
+
+
+To adjust the list of documents under `/docs`, look in `_data/docs.yaml`.

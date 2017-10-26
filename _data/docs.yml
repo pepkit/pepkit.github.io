@@ -1,18 +1,23 @@
-- title: Creating a PEP
+- title: Creating a PEP manually
   docs:
   - home
   - simple_example
   - sample_annotation
   - project_config
+  - example_PEPs
+
 
 - title: Advanced PEP features
   docs:
   - derived_columns
   - implied_columns
 
+- title: Creating a PEP programatically
+  docs:
+  - pepsra
+
 - title: Reading a PEP
   docs:
-  - python_package
-  - R_package
+  - pep
+  - pepr
   - looper
-  - other_tools
