@@ -8,7 +8,7 @@ title: "R package: pepr"
 
 ### Code and documentation
 
-* [User documentation and vignettes](http://code.databio.org/pepr/).
+* [User documentation and vignettes](http://code.databio.org/pepr/)
 * [Source code at Github](https://github.com/pepkit/pepr)
 
 ### Quick start
