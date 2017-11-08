@@ -51,4 +51,4 @@ You can specify as many derived columns as you want (``data_source`` is consider
 
 Think of each sample as belonging to a certain type (for simple experiments, the type will be the same); then define the location of these samples in the project configuration file. As a side bonus, you can easily include samples from different locations, and you can also share the same sample annotation sheet on different environments (i.e. servers or users) by having multiple project config files (or, better yet, by defining a subproject for each environment). The only thing you have to change is the project-level expression describing the location, not any sample attributes (plus, you get to eliminate those annoying long/path/arguments/in/your/sample/annotation/sheet).
 
-Check out the complete working example in the [microtest repository](https://github.com/epigen/microtest/tree/master/config).
+Check out complete working examples in the [list of examples](/docs/example_PEPs).

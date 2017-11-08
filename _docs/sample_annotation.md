@@ -15,7 +15,7 @@ Certain keyword columns are required or provide looper-specific features. Any ad
 
 - ``organism`` - a string identifying the organism ("human", "mouse", "mixed"). **Recommended** but not required.
 
-- ``library`` - While not needed to build a ``Sample``, this column is required for submission of job(s). It specifies the source of data for the sample (*e.g.* ATAC-seq, RNA-seq, RRBS). ``Looper`` uses this information to determine which pipelines are relevant for the ``Sample``.
+- ``protocol`` - While not needed to build a ``Sample``, this column is required for submission of job(s). It specifies the source of data for the sample (*e.g.* ATAC-seq, RNA-seq, RRBS). ``Looper`` uses this information to determine which pipelines are relevant for the ``Sample``.
 
 - ``data_source`` - This column is used by default to specify the location of the input data file. Usually you want your annotation sheet to specify the locations of files corresponding to each sample. You can use this to simplify pointing to file locations with a neat string-replacement method that keeps things clean and portable. For more details, see the advanced section on [derived columns](/docs/derived_columns). Really, you just need any column specifying at least 1 data file for input.
 
@@ -26,7 +26,7 @@ Here are a few example annotation sheets:
 
 
 ```
-   "sample_name", "library", "organism", "flowcell", "lane", "BSF_name", "data_source"
+   "sample_name", "protocol", "organism", "flowcell", "lane", "BSF_name", "data_source"
    "albt_0h", "RRBS", "albatross", "BSFX0190", "1", "albt_0h", "bsf_sample"
    "albt_1h", "RRBS", "albatross", "BSFX0190", "1", "albt_1h", "bsf_sample"
    "albt_2h", "RRBS", "albatross", "BSFX0190", "1", "albt_2h", "bsf_sample"
