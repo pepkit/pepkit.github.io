@@ -17,6 +17,8 @@ redirect_from: /docs/index.html
 ## How is this useful?
 <img src="/img/data-munging.svg" alt="" style="float:right; margin-left:20px" width="350px">
 
-In a data analysis project, we frequently want to try a series of different tools all on the same data. Too often, running several different tools requires a unique structure for each analysis. This makes it difficult to do things like run several different analyses on one dataset, or plug several different datasets into one analysis, because each connection structure must be defined manually.
+In a data analysis project, we frequently want to run many different tools on the same input data. Too often, this requires structuring the data uniquely for each tool. This makes it difficult not only to test multiple tools, but also to plug several different datasets into one analysis, because each connection structure must be defined manually.
 
-To alleviate this challenge of linking data to tools, Portable Encapsulated Projects (PEP) aims to standardize the description of data collections, enabling both data providers and data users to communicate through the common interface of a standard format. Practically, this means individuals who describe their projects using this format will immediately inherit both greater portability for analysis as well as greater access to external complementary data. This link operates around a simple, standard, extensible definition of a project. 
+To alleviate this challenge of linking data to tools, Portable Encapsulated Projects (PEP) standardizes the description of data collections, enabling both data providers and data users to communicate through the common interface. Practically, this means individuals who describe their projects using this format will immediately inherit both greater portability for analysis as well as greater access to external complementary data. This link operates around a simple, standard, extensible definition of a <i>project</i>, or a set of annotated sample data.
+
+To learn more, continue to the next page to see a simple example of a PEP.

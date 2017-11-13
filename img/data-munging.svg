@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="202.40228mm"
-   height="287.18597mm"
-   viewBox="0 0 717.17346 1017.588"
+   width="210.80179mm"
+   height="287.52408mm"
+   viewBox="0 0 746.93549 1018.786"
    id="svg4148"
    version="1.1"
    inkscape:version="0.91 r13725"
@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35355339"
-     inkscape:cx="328.9343"
-     inkscape:cy="110.9579"
+     inkscape:zoom="0.5"
+     inkscape:cx="467.36566"
+     inkscape:cy="118.25768"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -51,7 +51,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-271.36482,1047.0299)">
+     transform="translate(-241.60281,1047.0299)">
     <g
        id="g4377">
       <path
@@ -481,7 +481,7 @@
     <path
        sodipodi:nodetypes="cc"
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:3.13141513;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-       d="m 637.50695,-169.83411 0,31.55007"
+       d="m 637.50695,-183.83411 0,31.55007"
        id="path4239"
        inkscape:connector-curvature="0" />
     <path
@@ -699,15 +699,28 @@
        id="path4269"
        inkscape:connector-curvature="0" />
     <text
+       sodipodi:linespacing="100%"
+       id="text4443-35"
+       y="272.59653"
+       x="560.56128"
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32.81617737px;line-height:100%;font-family:Arial;-inkscape-font-specification:'Arial, Normal';text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;white-space:normal;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       xml:space="preserve"
+       transform="matrix(0,-1,1,0,0,0)"><tspan
+         y="272.59653"
+         x="560.56128"
+         id="tspan4445-62"
+         sodipodi:role="line">TOOLS</tspan></text>
+    <text
+       transform="matrix(0,-1,1,0,0,0)"
        xml:space="preserve"
        style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32.81617737px;line-height:100%;font-family:Arial;-inkscape-font-specification:'Arial, Normal';text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;white-space:normal;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-       x="604.0899"
-       y="-173.44177"
-       id="text4216"
+       x="34.561279"
+       y="272.59653"
+       id="text4371"
        sodipodi:linespacing="100%"><tspan
          sodipodi:role="line"
-         id="tspan4218"
-         x="604.0899"
-         y="-173.44177">PEP</tspan></text>
+         id="tspan4373"
+         x="34.561279"
+         y="272.59653">TOOLS</tspan></text>
   </g>
 </svg>
