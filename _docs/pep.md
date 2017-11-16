@@ -2,7 +2,7 @@
 title: "Python package: pep"
 ---
 
-<img src="/img/logo_python.svg" alt="" style="float:left; margin:20px">`pep` is a python package that loads PEPs. It instantiates an in-memory representation of your project and all of its samples, for any downstream purpose.
+<img src="/img/logo_python.svg" alt="" style="float:left; margin:20px">`pep` is a python package that loads PEPs. It instantiates an in-memory representation of your project and all of its samples, for any downstream purpose. This gives you access to your project metadata from within python.
 
 ### Code and documentation
 
@@ -11,6 +11,13 @@ title: "Python package: pep"
 * [Source code at Github](https://github.com/pepkit/pep)
 
 ### Quick start 
+
+Install with:
+```
+pip install --user --upgrade https://github.com/pepkit/pep/zipball/master
+```
+
+Then you can load your project into Python with this code:
 
 ```
 import pep
