@@ -12,14 +12,14 @@ title: Looper
 ### Code and documentation
 
 * [User documentation and vignettes](http://looper.readthedocs.io)
-* [Source code at Github](https://github.com/epigen/looper)
+* [Source code at Github](https://github.com/pepkit/looper)
 
 ### Quick start
 
 Install with
 
 ```{bash}
-pip install https://github.com/epigen/looper/zipball/master
+pip install https://github.com/pepkit/looper/zipball/master
 ```
 
 Once your PEP project and your pipelines are configured, you run your samples through `looper`  with this command:
