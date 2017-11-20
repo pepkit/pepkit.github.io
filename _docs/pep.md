@@ -6,8 +6,8 @@ title: "Python package: pep"
 
 ### Code and documentation
 
-* [User documentation and vignettes](http://looper.readthedocs.io/en/latest/models.html)
-* [pep API](http://looper.readthedocs.io/en/latest/api.html)
+* [User documentation and vignettes](http://pep.readthedocs.io/)
+* [pep API](http://pep.readthedocs.io/en/latest/api.html)
 * [Source code at Github](https://github.com/pepkit/pep)
 
 ### Quick start 
