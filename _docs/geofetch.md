@@ -10,4 +10,4 @@ title: "geofetch"
 
 ### Quick start
 
-`geofetch` currently exists only in prototype is is not is not yet functional or publicly available.
+`geofetch` currently exists only in prototype and is not yet functional or publicly available.
