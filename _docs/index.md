@@ -4,7 +4,7 @@ permalink: /docs/home/
 redirect_from: /docs/index.html
 ---
 
-*Portable Encapsulated Projects* provides you with a structure and toolkit for organizing large-scale research projects. Let's break that down into two components that work together to form this concept: 
+*Portable Encapsulated Projects* (*PEP* for short) provides you with a structure and toolkit for organizing large-scale research projects. Let's break that down into two components that work together to form this concept: 
 
 1. the standardized structure for organizing a project, which we call *PEP*
 2. a toolkit with several pieces of software that are built around that standard
