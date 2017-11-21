@@ -42,3 +42,7 @@ To summarize the statistics of all the pipeline runs, you type:
 looper summarize project_config.yaml
 ```
 
+
+### Looper pipelines
+
+Here is a [list of publicly available looper-compatible pipelines](https://github.com/pepkit/hello_looper/blob/master/looper_pipelines.md)
