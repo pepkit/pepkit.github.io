@@ -3,9 +3,9 @@ title: Sample annotation file
 #permalink: /docs/sample_annotation.html
 ---
 
-The ``sample annotation sheet`` is a csv file containing information about all samples in a project. This should be regarded as an immutable and the most important piece of metadata in a project. **One row corresponds to one sample** (or, equivalently, one pipeline run).
+The ``sample annotation sheet`` is a `.csv` file containing information about all samples (or peices of data) in a project. **One row corresponds to one sample** (or, equivalently, one pipeline run).
 
-A sample annotation sheet may contain any number of columns you need for your project. You can think of these columns as `sample attributes`, and you may use these columns later in your pipelines or analysis (for example, you could define a column called ``organism`` and use this to adjust the reference genome to use for each sample).
+A sample annotation sheet may contain any number of columns you need for your project. You can think of these columns as `sample attributes`, and you may use these columns later in your pipelines or analysis (for example, you could define a column called ``organism`` and use this to adjust the reference genome to use for each sample). For this reason, we sometimes use the word `column` and `attribute` interchangeably. 
 
 ### Special columns
 
