@@ -4,7 +4,7 @@ permalink: /docs/home/
 redirect_from: /docs/index.html
 ---
 
-*Portable Encapsulated Projects* (*PEP* for short) is a standardized way to organize project metadata. A *project* is a collection of data, and *PEP* provides a standard way to describe that dataset. It was designed for use in bioinformatics projects that involve lots of data for a set of samples (which could be individual experiments, organisms, cell lines, what have you). However, the concepts are fundamentally generic and could be applied to any type of project that can represent metadata in tabular form, with rows corresponding to units of interest (*i.e.* samples) and columns corresponding to attributes of those units. PEP makes it easy to:
+*Portable Encapsulated Projects* (*PEP* for short) is a standardized way to organize metadata. **By *project*, we mean a collection of data, and *PEP* provides a standard way to describe that dataset**. It was designed for use in bioinformatics projects that involve lots of data for a set of samples (which could be individual experiments, organisms, cell lines, what have you). However, the concepts are fundamentally generic and could be applied to any type of project that can represent metadata in tabular form, with rows corresponding to units of interest (*i.e.* samples) and columns corresponding to attributes of those units. PEP makes it easy to:
 
 1. describe all your projects the same way, so you only have to learn one metadata structure
 2. work collaboratively, since the organization is standardized

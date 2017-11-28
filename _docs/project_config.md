@@ -8,13 +8,23 @@ A minimal project config file requires very little; only a single section (``met
 
 ### Project config section: metadata
 
-The `metadata` section contains paths to various parts of the project: the output directory (the parent directory), the results subdirector, the submission subdirectory (where submit scripts are stored), and pipeline scripts.Pointers to sample annotation sheets. This is the only required section.
+The `metadata` section is **the only required section** of a PEP. It contains paths to various parts of the project: this must include pointers to at least 1) the output directory (the parent directory) and 2) the sample annotation sheet.
+
+A minimal example with just the required variables:
+
+	metadata:
+	  sample_annotation: /path/to/sample_annotation.csv
+	  output_dir: /path/to/parent/output/folder
+
+The `metadata` section may also optionally include pointers to the submission-script subdirectory (where submit scripts are stored), the results subdirectory, and pipeline interface files (for looper pipelines). 
 
 Example:
 
 	metadata:
 	  sample_annotation: /path/to/sample_annotation.csv
-	  output_dir: /path/to/output/folder
+	  output_dir: /path/to/parent/output/folder
+	  results_subdir: results_pipeline
+	  submission_dir: submission
 	  pipeline_interfaces: /path/to/pipeline_interface.yaml
 
 
