@@ -6,17 +6,17 @@ permalink: /docs/project_config/
 A project config file is organized into sections. Most are optional. Here are additional details on each of the configuration sections:
 
 
-### Project config section: metadata
+### Project config section: `metadata`
 
-The `metadata` section is **the only required section** of a PEP. It contains paths to various parts of the project: this must include pointers to at least 1) the output directory (the parent directory) and 2) the sample annotation sheet.
+The `metadata` section is **the only required section** of a PEP. It contains paths to various parts of the project: this must include pointers to at least 1) the sample annotation sheet; and 2) the parent output directory.
 
-A minimal example with just the required variables:
+Here's a minimal example with just the two required variables:
 
 	metadata:
 	  sample_annotation: /path/to/sample_annotation.csv
 	  output_dir: /path/to/parent/output/folder
 
-The `metadata` section may also optionally include pointers to the submission-script subdirectory (where submit scripts are stored), the results subdirectory, and pipeline interface files (for looper pipelines). 
+The `sample_annotation` value can be absolute, but relative paths are assumed relative to the location of the `project_config.yaml` file. The `metadata` section may also optionally include pointers to the submission-script subdirectory (where submit scripts are stored), the results subdirectory, and pipeline interface files (for looper pipelines). 
 
 Example:
 
@@ -28,22 +28,22 @@ Example:
 	  pipeline_interfaces: /path/to/pipeline_interface.yaml
 
 
-### Project config section: data_sources
+### Project config sections: `derived_columns` and `data_sources`
 
-The `data_sources` section uses regex-like commands to point to different spots on the filesystem for data. The variables (specified by ``{variable}``) are populated by sample attributes (columns in the sample annotation sheet). You can also use shell environment variables (like ``${HOME}``) in these.
+The sections called `derived_columns` and `data_sources` provide a flexible way to point to data files on disk. These two sections go together (so they aren't meaningful independently; if you define one you should define the other). 
+
+The `derived_columns` section provides a way to link short keys to variable-encoded file paths. The variables in the file paths are formatted as `{variable}`, and are populated by sample attributes (columns in the sample annotation sheet). For example, your files may be stored in `/path/to/raw/data/{sample_name}.fastq`, where `{sample_name}` will be populated individually for each sample in your PEP.
 
 Example:
 
 	data_sources:
-	  source1: /path/to/raw/data/{sample_name}_{sample_type}.bam
-	  source2: /path/from/collaborator/weirdNamingScheme_{external_id}.fastq
-	  source3: ${HOME}/{test_id}.fastq
+	  source1: "/path/to/raw/data/{sample_name}_{sample_type}.bam"
+	  source2: "/path/from/collaborator/weirdNamingScheme_{external_id}.fastq"
+	  source3: "${HOME}/{test_id}.fastq"
 
-For more details, see [derived columns](/docs/derived_columns).
+You can also use shell environment variables (like ``${HOME}``).
 
-### Project config section: derived_columns
-
-``derived_columns`` is just a simple list that tells looper which column names it should populate as data_sources. Corresponding sample attributes will then have as their value not the entry in the table, but the value derived from the string replacement of sample attributes specified in the config file. This enables you to point to more than one input file for each sample (for example read1 and read2).
+The `derived_columns` section identifies which column names (or sample attributes) should be populated as data_sources. Corresponding sample attributes will then have as their value not the entry in the table, but the value derived from the string replacement of sample attributes specified in the config file. This enables you to point to more than one input file for each sample (for example read1 and read2).
 
 Example:
 
@@ -51,8 +51,7 @@ Example:
 derived_columns: [read1, read2, data_1]
 ```
 
-For more details, see [derived columns](/docs/derived_columns).
-
+For more details and a complete example, see [derived columns](/docs/derived_columns).
 
 ### Project config section: implied_columns
 
