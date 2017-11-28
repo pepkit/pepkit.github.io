@@ -3,7 +3,7 @@ title: Project config file
 permalink: /docs/project_config/
 ---
 
-A minimal project config file requires very little; only a single section (``metadata`` -- see above). Here are additional details on this and other optional project config file sections:
+A project config file is organized into sections. Most are optional. Here are additional details on each of the configuration sections:
 
 
 ### Project config section: metadata
