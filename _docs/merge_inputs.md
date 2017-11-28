@@ -14,16 +14,17 @@ Sometimes you have multiple input files that you want to merge for one sample. F
 
 To do the first option, just change your data source specifications, like this:
 
-.. code-block:: yaml
 
-      data_R1: "${DATA}/{id}_S{nexseq_num}_L00*_R1_001.fastq.gz"
-      data_R2: "${DATA}/{id}_S{nexseq_num}_L00*_R2_001.fastq.gz"
+```{yaml}
+data_R1: "${DATA}/{id}_S{nexseq_num}_L00*_R1_001.fastq.gz"
+data_R2: "${DATA}/{id}_S{nexseq_num}_L00*_R2_001.fastq.gz"
+```
 
 # Option 2: the merge table
 
 To do the second option, just provide a merge table in the *metadata* section of your project config:
 
-```
+```{yaml}
 metadata:
   merge_table: mergetable.csv
 ```
