@@ -32,18 +32,18 @@ Example:
 
 The sections called `derived_columns` and `data_sources` provide a flexible way to point to data files on disk. These two sections go together (so they aren't meaningful independently; if you define one you should define the other). 
 
-The `derived_columns` section provides a way to link short keys to variable-encoded file paths. The variables in the file paths are formatted as `{variable}`, and are populated by sample attributes (columns in the sample annotation sheet). For example, your files may be stored in `/path/to/raw/data/{sample_name}.fastq`, where `{sample_name}` will be populated individually for each sample in your PEP.
+The `derived_columns` section provides a way to link short keys to variable-encoded file paths. The variables in the file paths are formatted as `{variable}`, and are populated by samlpe attributes (columns in the sample annotation sheet). For example, your files may be stored in `/path/to/{sample_name}.fastq`, where `{sample_name}` will be populated individually for each sample in your PEP.
 
 Example:
 
 	data_sources:
-	  source1: "/path/to/raw/data/{sample_name}_{sample_type}.bam"
-	  source2: "/path/from/collaborator/weirdNamingScheme_{external_id}.fastq"
-	  source3: "${HOME}/{test_id}.fastq"
+	  key1: "/path/to/raw/data/{sample_name}_{sample_type}.bam"
+	  key2: "/path/from/collaborator/weirdNamingScheme_{external_id}.fastq"
+	  key3: "${HOME}/{test_id}.fastq"
 
 You can also use shell environment variables (like ``${HOME}``).
 
-The `derived_columns` section identifies which column names (or sample attributes) should be populated as data_sources. Corresponding sample attributes will then have as their value not the entry in the table, but the value derived from the string replacement of sample attributes specified in the config file. This enables you to point to more than one input file for each sample (for example read1 and read2).
+The `derived_columns` section simply identifies which column names (or sample attributes) should be populated as data_sources. Corresponding sample attributes will then have as their value derived from the string replacement of sample attributes specified in the config file. This enables you to point to more than one input file for each sample. 
 
 Example:
 
@@ -55,7 +55,7 @@ For more details and a complete example, see [derived columns](/docs/derived_col
 
 ### Project config section: implied_columns
 
-``implied_columns`` lets you infer additional attributes, which can be useful for pipeline arguments.
+``implied_columns`` lets you infer additional attributes, which can be useful for pipeline arguments. For instance, it may that one sample attribute implies several more. Rather than encoding these each as separate, non-varying columns in the annotation sheet, you may simply indicate in the `project_config.yaml` that samples of a certain type should automatically inherit additional attributes.
 
 Example:
 
@@ -67,8 +67,9 @@ implied_columns:
       macs_genome_size: "hs"
 ```
 
-For more details, see [implied columns](/docs/implied_columns).
+This example says that any sample with `organism` attribute set to the string "human" should also automatically set additional attributes of `genome` (with value "hg38") and `macs_genome_size` (with value "hs"). These implied attributes may now be used as pipeline arguments or for other analysis.
 
+For more details, see [implied columns](/docs/implied_columns).
 
 ### Project config section: subprojects
 
