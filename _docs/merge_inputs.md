@@ -20,7 +20,7 @@ data_R1: "${DATA}/{id}_S{nexseq_num}_L00*_R1_001.fastq.gz"
 data_R2: "${DATA}/{id}_S{nexseq_num}_L00*_R2_001.fastq.gz"
 ```
 
-# Option 2: the merge table
+## Option 2: the merge table
 
 To do the second option, just provide a merge table in the *metadata* section of your project config:
 
