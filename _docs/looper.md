@@ -11,6 +11,7 @@ title: Looper
 
 ### Code and documentation
 
+* [Hello looper example repository](https://github.com/pepkit/hello_looper) - A very simple PEP and looper pipeline with hands-on tutorial to test out looper.
 * [User documentation and vignettes](http://looper.readthedocs.io)
 * [Source code at Github](https://github.com/pepkit/looper)
 
