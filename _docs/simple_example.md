@@ -3,9 +3,11 @@ title: A simple example
 #permalink: /docs/example/
 ---
 
-## What is a 'project'?
+<img src="/img/pep_contents.svg" alt="" style="float:right; margin-left:20px" width="350px">
 
-To use the PEP toolkit, you first need a *project*. What we mean by *project* is nothing more than a dataset you've collected and intend to analyze. To create a PEP to repesent your dataset, you simply describe your data using PEP structure. The format is simple and modular, so you only need to define the components you plan to use. You need to create 2 files:
+To use the PEP toolkit, you first need a *project*, which is nothing more than a collection of data with its metadata. To create a PEP to represent your dataset, you simply describe your data using PEP structure, which is composed of 2 files:
+
+
 
 1. **Project config file** - a ``yaml`` file describing file paths and optional project settings
 2. **Sample annotation sheet** - a ``csv`` file with 1 row per sample
@@ -20,7 +22,7 @@ metadata:
  sample_annotation: /path/to/sample_annotation.csv
 ```
 
-If you're not already familiar with `yaml`, it's a simple hierarchical markup language used to store key-value pairs; you can <a href="http://www.yaml.org/start.html">read more about yaml here</a>.
+If you're not already familiar with `yaml`, it's a simple and widely used hierarchical markup language used to store key-value pairs; you can <a href="http://www.yaml.org/start.html">read more about yaml here</a>.
 
 The `output_dir` key specifies where to save results. The `sample_annotation` key points to the second key part of a *PEP*, a comma-separated value (``csv``) file describing samples in the project. Here's a small example of `sample_annotation.csv`:
 

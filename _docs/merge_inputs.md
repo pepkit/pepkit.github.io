@@ -26,11 +26,33 @@ To do the second option, just provide a merge table in the *metadata* section of
 
 ```{yaml}
 metadata:
-  merge_table: mergetable.csv
+  sample_annotation: annotation.csv
+  merge_table: merge_table.csv
 ```
 
-Make sure the `sample_name` column of this table matches, and then include any columns you need to point to the data. `PEP` will automatically include all of these files as appropriate. You can also combine merged columns with derived columns; files will first be derived and then merged, leading to a very flexible way to point to any files you need to merge.
+Make sure the `sample_name` column of this table matches, and then include any columns you need to point to the data. `PEP` will automatically include all of these files as appropriate. 
 
-Warning: do not use both of these options simultaneously for the same sample, it will lead to multiple merges.
+Here's a simple example of a PEP that uses merging. If you define the `sample_annotation` like this:
+
+```{csv}
+sample_name,library
+frog_1,anySampleType
+frog_2,anySampleType
+```
+
+Then point `merge_table.csv` to the following, which maps `sample_name` to a new column called `file`
+
+```{csv}
+sample_name,file
+frog_1,data/frog1a_data.txt
+frog_1,data/frog1b_data.txt
+frog_1,data/frog1c_data.txt
+frog_2,data/frog2a_data.txt
+frog_2,data/frog2b_data.txt
+```
+
+This sets up a simple relational database that maps multiple files to each sample. You can also combine merged columns with derived columns; columns will first be derived and then merged, leading to a very flexible way to point to any files you need to merge. 
+
+Warning: do not use both wildcards and a merge table simultaneously for the same sample, as it may lead to multiple merges.
 
 Note: to handle different *classes* of input files, like read1 and read2, these are *not* merged and should be handled as different columns in the main sample annotation sheet (and therefore different arguments to the pipeline).
