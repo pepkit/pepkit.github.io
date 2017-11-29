@@ -24,7 +24,7 @@ Example:
 	  sample_annotation: /path/to/sample_annotation.csv
 	  output_dir: /path/to/parent/output/folder
 	  results_subdir: results_pipeline
-	  submission_dir: submission
+	  submission_subdir: submission
 	  pipeline_interfaces: /path/to/pipeline_interface.yaml
 
 
