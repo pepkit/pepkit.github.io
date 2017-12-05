@@ -32,7 +32,7 @@ Example:
 
 The sections called `derived_columns` and `data_sources` provide a flexible way to point to data files on disk. These two sections go together (so they aren't meaningful independently; if you define one you should define the other). 
 
-The `derived_columns` section provides a way to link short keys to variable-encoded file paths. The variables in the file paths are formatted as `{variable}`, and are populated by samlpe attributes (columns in the sample annotation sheet). For example, your files may be stored in `/path/to/{sample_name}.fastq`, where `{sample_name}` will be populated individually for each sample in your PEP.
+The `derived_columns` section provides a way to link short keys to variable-encoded file paths. The variables in the file paths are formatted as `{variable}`, and are populated by sample attributes (columns in the sample annotation sheet). For example, your files may be stored in `/path/to/{sample_name}.fastq`, where `{sample_name}` will be populated individually for each sample in your PEP.
 
 Example:
 
