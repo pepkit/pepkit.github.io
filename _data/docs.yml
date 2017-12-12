@@ -11,7 +11,7 @@
   docs:
   - derived_columns
   - implied_columns
-  - merge_inputs
+  - sample_subannotation
 
 - title: Creating a PEP programatically
   docs:

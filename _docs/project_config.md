@@ -16,17 +16,9 @@ Here's a minimal example with just the two required variables:
 	  sample_annotation: /path/to/sample_annotation.csv
 	  output_dir: /path/to/parent/output/folder
 
-The `sample_annotation` value can be absolute, but relative paths are assumed relative to the location of the `project_config.yaml` file. The `metadata` section may also optionally include pointers to the submission-script subdirectory (where submit scripts are stored), the results subdirectory, and pipeline interface files (for looper pipelines). 
+The `sample_annotation` value can be absolute or relative; relative paths are assumed relative to the location of the `project_config.yaml` file.
 
-Example:
-
-	metadata:
-	  sample_annotation: /path/to/sample_annotation.csv
-	  output_dir: /path/to/parent/output/folder
-	  results_subdir: results_pipeline
-	  submission_subdir: submission
-	  pipeline_interfaces: /path/to/pipeline_interface.yaml
-
+The `metadata` section also allows for another attribute, called `sample_subannotation`, which points to a second annotation table to accommodate samples with multiple values for one or more attributes. Most projects do not require subannotation tables, but for more details, see the advanced section on [sample subannotation](/docs/sample_subannotation).
 
 ### Project config sections: `derived_columns` and `data_sources`
 
@@ -94,6 +86,19 @@ This project would specify 2 subprojects that have almost the exact same setting
 # Looper sections
 
 The following sections are specific to `looper`, which is one tool in `pepkit`. These sections are optional and only useful if you're planning to use `looper` to submit pipelines for your project.
+
+### Project config section: metadata
+
+The `metadata` section (described previously) has some additional attributes that are understood by `looper`. It may optionally include pointers to the submission-script subdirectory (where submit scripts are stored), the results subdirectory, and pipeline interface files.
+
+Example:
+
+	metadata:
+	  sample_annotation: /path/to/sample_annotation.csv
+	  output_dir: /path/to/parent/output/folder
+	  results_subdir: results_pipeline
+	  submission_subdir: submission
+	  pipeline_interfaces: /path/to/pipeline_interface.yaml
 
 
 ### Project config section: pipeline_config
