@@ -54,7 +54,7 @@ frog_2,data/frog2b_data.txt
 
 This sets up a simple relational database that maps multiple files to each sample. You can also combine merged columns with derived columns; columns will first be derived and then merged, leading to a very flexible way to point to any files you need to merge.
 
-You can find more examples of projects that use merging in the [example PEPs list](/docs/example_peps).
+You can find more examples of projects that use merging in the [example PEPs list](/docs/example_PEPs).
 
 A few tidbits you may need to consider when using merge tables:
 
