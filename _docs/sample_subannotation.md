@@ -26,14 +26,14 @@ data_R1: "${DATA}/{id}_S{nexseq_num}_L00*_R1_001.fastq.gz"
 data_R2: "${DATA}/{id}_S{nexseq_num}_L00*_R2_001.fastq.gz"
 ```
 
-## Option 2: the merge table
+## Option 2: the sample_subannotation table
 
-To do the second option, just provide a merge table in the *metadata* section of your project config:
+To do the second option, just provide a sample_subannotation table (formerly called a merge table) in the *metadata* section of your project config:
 
 ```{yaml}
 metadata:
   sample_annotation: annotation.csv
-  merge_table: merge_table.csv
+  sample_subannotation: sample_subannotation.csv
 ```
 
 Make sure the `sample_name` column of this table matches, and then include any columns you need to point to the data. `PEP` will automatically include all of these files as appropriate. 
@@ -46,7 +46,7 @@ frog_1,anySampleType
 frog_2,anySampleType
 ```
 
-Then point `merge_table.csv` to the following, which maps `sample_name` to a new column called `file`
+Then point `sample_subannotation.csv` to the following, which maps `sample_name` to a new column called `file`
 
 ```{csv}
 sample_name,file
@@ -76,13 +76,13 @@ frog_2,data/frog2b_R1.txt,data/frog2b_R2.txt
 
 You can find more examples of projects that use merging in the [example PEPs list](/docs/example_PEPs).
 
-A few tidbits you may need to consider when using merge tables:
+A few tidbits you may need to consider when using sample_subannotation tables to merge files:
 
-- Merge tables are intended to handle multiple values *of the same type*. To handle different *classes* of input files, like read1 and read2, these are *not* merged and are therefore *not* put into a merge table. These should be handled as different columns in the main sample annotation sheet (and therefore different arguments to the pipeline). It is possible that you will want to have read1 and read2, and then each of these could have multiple inputs, which would then be merged.
+- Sample subannotation tables are intended to handle multiple values *of the same type*. To handle different *classes* of input files, like read1 and read2, these are *not* the same type, and are therefore *not* put into a sample subannotation table. Instead, these should be handled as different columns in the main sample annotation sheet (and therefore different arguments to the pipeline). It is possible that you will want to have read1 and read2, and then each of these could have multiple inputs, which would then be placed in the subannotation table.
 
-- You *do not* need to include samples in the merge table if they do not need to be merged. Just include them in the primary annotation table. However, this means you'll need to make sure you provide the correct columns in the primary `sample_annotation` sheet; the simple example above assumes every sample is merged, so it doesn't need to define `file` in the `sample_annotation`. If you had unmerged samples, you'd need to specify that column.
+- If your project has some samples with subannotations, but others without, then you only need to include samples in the subannotation table if they have subannotations. Other sampels can just be included in the primary annotation table. However, this means you'll need to make sure you provide the correct columns in the primary `sample_annotation` sheet; the simple example above assumes every sample has subannotations, so it doesn't need to define `file` in the `sample_annotation`. If you had unmerged samples, you'd need to specify that column in the primary sheet.
 
-- In practice, we've found that almost every project can be solved using wildcards, and merge tables are not necessary. If you start to think about how to use merge tables, first double-check that you can't solve the problem using a simple wildcard; that makes it much easier to think about, and it should be possible as long as the files are named systematically.
+- In practice, we've found that almost every project can be solved using wildcards, and subannotation tables are not necessary. If you start to think about how to use subannotation tables, first double-check that you can't solve the problem using a simple wildcard; that makes it much easier to think about, and it should be possible as long as the files are named systematically.
 
-- Warning: While you may use both wildcards and merge tables for different samples within a project; **do not use both wildcards and a merge table simultaneously for the same sample**, as it may lead to multiple merges.
+- Warning: While you may use both wildcards and subannotation tables for different samples within a project; **do not use both wildcards and a subannotation table simultaneously for the same sample**, as it may lead to multiple merges.
 
