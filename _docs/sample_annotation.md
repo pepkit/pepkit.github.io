@@ -13,7 +13,7 @@ Certain keyword columns are required or provide looper-specific features. Any ad
 
 - ``sample_name`` - a **unique** string identifying each sample [^1]. This is **required** for ``Sample`` construction.  The only required column.
 
-- ``organism`` - a string identifying the organism ("human", "mouse", "mixed"). **Recommended** but not required.
+- ``organism`` - a string identifying the organism (*e.g.* "human", "mouse", "mixed"). **Recommended** but not required.
 
 - ``protocol`` - While not needed to build a ``Sample``, this column is required for submission of job(s). It specifies the source of data for the sample (*e.g.* ATAC-seq, RNA-seq, RRBS). ``Looper`` uses this information to determine which pipelines are relevant for the ``Sample``.
 
@@ -26,15 +26,15 @@ Here are a few example annotation sheets:
 
 
 ```
-   "sample_name", "protocol", "organism", "flowcell", "lane", "BSF_name", "data_source"
-   "albt_0h", "RRBS", "albatross", "BSFX0190", "1", "albt_0h", "bsf_sample"
-   "albt_1h", "RRBS", "albatross", "BSFX0190", "1", "albt_1h", "bsf_sample"
-   "albt_2h", "RRBS", "albatross", "BSFX0190", "1", "albt_2h", "bsf_sample"
-   "albt_3h", "RRBS", "albatross", "BSFX0190", "1", "albt_3h", "bsf_sample"
-   "frog_0h", "RRBS", "frog", "", "", "", "frog_data"
-   "frog_1h", "RRBS", "frog", "", "", "", "frog_data"
-   "frog_2h", "RRBS", "frog", "", "", "", "frog_data"
-   "frog_3h", "RRBS", "frog", "", "", "", "frog_data"
+   "sample_name", "protocol", "organism", "flowcell", "lane",  "data_source"
+   "albt_0h", "RRBS", "albatross", "BSFX0190", "1", "bsf_sample"
+   "albt_1h", "RRBS", "albatross", "BSFX0190", "1", "bsf_sample"
+   "albt_2h", "RRBS", "albatross", "BSFX0190", "1", "bsf_sample"
+   "albt_3h", "RRBS", "albatross", "BSFX0190", "1", "bsf_sample"
+   "frog_0h", "RRBS", "frog", "", "", "frog_data"
+   "frog_1h", "RRBS", "frog", "", "", "frog_data"
+   "frog_2h", "RRBS", "frog", "", "", "frog_data"
+   "frog_3h", "RRBS", "frog", "", "", "frog_data"
 ```
 
 [1]:

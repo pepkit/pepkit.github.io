@@ -2,7 +2,7 @@
 title: "Python package: peppy"
 ---
 
-<img src="/img/logo_python.svg" alt="" style="float:left; margin:20px">`peppy` is a python package that loads PEPs. It instantiates an in-memory representation of your project and all of its samples, for any downstream purpose. This gives you access to your project metadata from within python.
+<img src="/img/logo_python.svg" alt="" style="float:left; margin:20px">`peppy` is a python package that loads PEPs. It instantiates an in-memory representation of metadata for your project and all of its samples, for any downstream purpose. `peppy` is useful for software developers or data analysts who use python.
 
 ### Code and documentation
 
@@ -12,12 +12,12 @@ title: "Python package: peppy"
 
 ### Quick start 
 
-Install with:
+Peppy is on pypi. Install with:
 ```
-pip install --user --upgrade https://github.com/pepkit/peppy/zipball/master
+pip install peppy
 ```
 
-Then you can load your project into Python with this code:
+Or use `pip install --user --upgrade peppy` to install a local copy. Then you can load your project into Python with this code:
 
 ```
 import peppy
@@ -26,4 +26,4 @@ my_project = peppy.Project("path/to/project_config.yaml")
 my_samples = my_project.samples
 ```
 
-Once you have your project and samples in your Python session, the possibilities are endless. This is the way `looper` reads your project; `looper` uses these objects to loop through each sample and submit pipelines for each. You could just as easily use these objects for other purposes; for example, one way we use these objects is for post-pipeline processing. We can load the project and it sample objects into an analysis session, where we do comparisons across samples.
+Once you have your project and sample metadata in your Python session, the possibilities are endless.
