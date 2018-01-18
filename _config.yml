@@ -1,9 +1,10 @@
 # Site settings
-title: pepkit
+title: "pepkit: the toolkit for Portable Encapsulated Projects"
 email: your-email@domain.com
 description: >
-  Jekyll Template for Project Websites
-  providing documentation and blog post pages.
+  Standardize metadata management with pepkit, a collection of tools to help
+  deal with bioinformatics project metadata. Pepkit includes python packages
+  peppy, pepr, and looper.
 
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: https://pepkit.github.io/ # the base hostname & protocol for your site
