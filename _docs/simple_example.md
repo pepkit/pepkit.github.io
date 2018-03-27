@@ -34,7 +34,7 @@ The `output_dir` key specifies where to save results. The `sample_annotation` ke
 "frog_4", "RNA-seq", "frog4.fq.gz"
 ```
 
-With those two simple files, you are ready to use the pepkit tools! Now, with a single line of code, you could load your metadata into R using <a href="/docs/pepr/">pepr</a>, into python using <a href="/docs/pep/">pep</a>, or run each sample through an arbitrary command-line pipeline using <a href="/docs/looper/">looper</a>. 
+With those two simple files, you are ready to use the pepkit tools! Now, with a single line of code, you could load your metadata into R using <a href="/docs/pepr/">pepr</a>, into python using <a href="/docs/peppy/">peppy</a>, or run each sample through an arbitrary command-line pipeline using <a href="/docs/looper/">looper</a>. 
 
 If you make a habit of describing all your projects like this, you'll never parse another sample annotation sheet again. You'll never write another pipeline submission loop.
 
