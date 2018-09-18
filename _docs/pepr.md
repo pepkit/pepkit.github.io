@@ -27,12 +27,10 @@ p = pepr::Project(file="project_config.yaml")
 ```
 
 Now you can retrieve all your configuration information or sample metadata with easy getter functions:
+
 ```{R}
 samples(p)
 config(p)
-
-p@config
-p@samples
 ```
 
 
