@@ -14,7 +14,6 @@ title: "geofetch"
 
 ```
 git clone git@github.com:pepkit/geofetch.git
-
 ```
 
 To see the command-line options, run it with `-h`:
