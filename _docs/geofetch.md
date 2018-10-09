@@ -10,4 +10,22 @@ title: "geofetch"
 
 ### Quick start
 
-`geofetch` currently exists only in prototype and is not yet functional or publicly available.
+`geofetch` is a python script that can be downloaded from github:
+
+```
+git clone git@github.com:pepkit/geofetch.git
+
+```
+
+To see the command-line options, run it with `-h`:
+
+```
+python geofetch.py -h
+```
+
+For example, you can run `geofetch` to build a PEP for your list of accessions like this:
+
+```
+python geofetch.py -i GSE##### -m path/to/metadata/folder -n PROJECT_NAME
+```
+
