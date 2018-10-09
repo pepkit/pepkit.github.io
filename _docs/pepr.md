@@ -15,20 +15,20 @@ title: "R package: pepr"
 
 Install with 
 
-```{r}
+```
 devtools::install_github("pepkit/pepr")
 ```
 
 Load up your project like this:
 
 
-```{R}
+```
 p = pepr::Project(file="project_config.yaml")
 ```
 
 Now you can retrieve all your configuration information or sample metadata with easy getter functions:
 
-```{R}
+```
 samples(p)
 config(p)
 ```

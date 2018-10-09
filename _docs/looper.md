@@ -19,13 +19,13 @@ We provide a suite of already-built pipelines for ease-of-use, but you can confi
 
 Install with
 
-```{bash}
+```
 pip install https://github.com/pepkit/looper/zipball/master
 ```
 
 Once your PEP project and your pipelines are configured, you run your samples through `looper`  with this command:
 
-```{bash}
+```
 looper run project_config.yaml
 ```
 
@@ -33,13 +33,13 @@ That command will parse your PEP samples, and build jobs for each one. It’s sc
 
 To check on your running jobs, you run:
 
-```{bash}
+```
 looper check project_config.yaml
 ```
 
 To summarize the statistics of all the pipeline runs, you type:
 
-```{bash}
+```
 looper summarize project_config.yaml
 ```
 
