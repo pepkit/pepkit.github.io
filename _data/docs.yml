@@ -12,6 +12,7 @@
   - derived_columns
   - implied_columns
   - sample_subannotation
+  - subprojects
 
 - title: Creating a PEP programatically
   docs:
