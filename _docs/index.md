@@ -27,4 +27,4 @@ To use PEP, you'll first have to either create or download a PEP. Then, you will
 
 **Creating a PEP**. This web page contains simple examples and detailed documentation for creating a PEP. Start with [a simple example of a PEP](/docs/simple_example/).
 
-**Using PEP tools**. With a PEP in hand, you'll then be able to use any PEP-compatible tool to process your project. This web page provides a brief introduction and link to each of the tools in `pepkit` that can read your project. There is also a [list of PEP-compatible external tools](docs/tools/).
+**Using PEP tools**. With a PEP in hand, you'll then be able to use any PEP-compatible tool to process your project. This web page provides a brief introduction and link to each of the tools in `pepkit` that can read your project. There is also a [list of PEP-compatible external tools](/docs/tools/).
