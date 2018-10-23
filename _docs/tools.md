@@ -4,15 +4,13 @@ title: Software using PEP
 
 Publicly available software that builds on PEP:
 
-
+* [PEPATAC](https://code.databio.org/PEPATAC) - An ATAC-seq pipeline based on `looper`.
 * [peppy](https://github.com/pepkit/peppy)
 * [pepr](https://github.com/pepkit/pepr)
-* [looper](https://github.com/pepkit/looper)
-* [geofetch](https://github.com/pepkit/geofetch)
+* [geofetch](https://github.com/pepkit/geofetch) - Converts GEO or SRA accessions into PEP projects.
 * [pepenv](https://github.com/pepkit/pepenv)
 * [pifaces](https://github.com/pepkit/pifaces)
 * [pypiper](https://github.com/databio/pypiper)
-* [pepatac](https://github.com/databio/pepatac)
 * [dnameth_pipelines](https://github.com/databio/dnameth_pipelines)
 * [projectInit](https://github.com/databio/projectInit)
 * [ngstoolkit](https://github.com/afrendeiro/toolkit) - NGS analysis toolkit

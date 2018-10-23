@@ -66,7 +66,7 @@ For more details, see [implied columns](/docs/implied_columns).
 ### Project config section: subprojects
 
 
-Subprojects are useful to define multiple similar projects within a single project config file. Under the subprojects key, you can specify names of subprojects, and then underneath these you can specify any project config variables that you want to overwrite for that particular subproject. Tell looper to load a particular subproject by passing ``--sp subproject-name`` on the command line.
+Subprojects are useful to define multiple similar projects within a single project config file. Under the subprojects key, you can specify names of subprojects, and then underneath these you can specify any project config variables that you want to overwrite for that particular subproject.
 
 For example:
 
