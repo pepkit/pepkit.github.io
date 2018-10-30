@@ -1,5 +1,6 @@
 ---
 title: Implied columns
+redirect_from: "docs/implied_columns"
 ---
 
 At some point, you may have a situation where you need a single sample attribute (or column) to populate several different pipeline arguments with different values. In other words, the value of a given attribute may **imply** values for other attributes. It would be nice if you didn't have to enumerate all of these secondary, implied attributes, and could instead just infer them from the value of the original attribute. For example, if my `organism` attribute is ``human``, this implies a few other secondary attributes (which may be project-specific): For one project, I want to set ``genome`` to ``hg38`` and ``macs_genome_size`` to ``hs``. Of course, I could just define columns called ``genome`` and ``macs_genome_size``, but these would be invariant, so it feels inefficient and unweildy; and then, changing the aligned genome would require changing the sample annotation sheet (every sample, in fact). You can do this with looper, of course, but a better way would be handle these things at the project level.

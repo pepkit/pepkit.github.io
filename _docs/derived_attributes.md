@@ -1,6 +1,6 @@
 ---
 title: Derived columns
-redirect_from: docs/derived_columns/
+redirect_from: "docs/derived_columns"
 ---
 
 On your sample sheet, you will need to point to the input file or files for each sample. Of course, you could just add a column with the file path, like ``/path/to/input/file.fastq.gz``. For example:
