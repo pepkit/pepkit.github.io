@@ -9,8 +9,8 @@
 
 - title: Advanced PEP features
   docs:
-  - derived_columns
-  - implied_columns
+  - derived_attributes
+  - implied_attributes
   - sample_subannotation
   - subprojects
 
