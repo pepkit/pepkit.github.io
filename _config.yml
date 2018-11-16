@@ -1,9 +1,9 @@
 # Site settings
-title: "pepkit: the toolkit for Portable Encapsulated Projects"
-email: your-email@domain.com
+title: "pepkit"
+email: nathan@code.databio.org
 description: >
   Standardize metadata management with pepkit, a collection of tools to help
-  deal with bioinformatics project metadata. Pepkit includes python packages
+  deal with bioinformatics project metadata. Pepkit includes
   peppy, pepr, and looper.
 
 baseurl: "" # the subpath of your site, e.g. /blog/
