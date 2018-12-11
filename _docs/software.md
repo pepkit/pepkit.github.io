@@ -14,6 +14,7 @@ Publicly available software that builds on PEP:
 * [dnameth_pipelines](https://github.com/databio/dnameth_pipelines)
 * [projectInit](https://github.com/databio/projectInit)
 * [ngstoolkit](https://github.com/afrendeiro/toolkit) - NGS analysis toolkit
+* [BiocProject](https://github.com/pepkit/BiocProject)
 
 
 
