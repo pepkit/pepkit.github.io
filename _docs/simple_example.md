@@ -5,7 +5,7 @@ title: A simple example
 
 <img src="/img/pep_contents.svg" alt="" style="float:right; margin-left:20px" width="350px">
 
-To use the PEP toolkit, you first need a *project*, which is nothing more than a collection of data with its metadata. To create a PEP to represent your dataset, you simply describe your data using PEP structure, which is composed of 2 files:
+**How do I create my own PEP?** To use any PEP-compatible tool, you first need a **PEP**. A **PEP** describes a collection of data with its metadata. To create a PEP to represent your dataset, you create 2 files:
 
 
 

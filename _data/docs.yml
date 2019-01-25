@@ -1,6 +1,9 @@
-- title: Creating a PEP manually
+- title: Getting started
   docs:
-  - home
+  - home 
+
+- title: How to create a PEP manually
+  docs:
   - simple_example
   - sample_annotation
   - project_config
@@ -14,7 +17,7 @@
   - sample_subannotation
   - subprojects
 
-- title: Creating a PEP programatically
+- title: How to create a PEP programatically
   docs:
   - geofetch
 
