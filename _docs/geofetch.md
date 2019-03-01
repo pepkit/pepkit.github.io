@@ -5,26 +5,26 @@ title: "geofetch"
 
 ### Code and documentation
 
-* User documentation and vignettes pending
+* [User documentation and vignettes](http://code.databio.org/geofetch)
 * [Source code at Github](https://github.com/pepkit/geofetch)
 
 ### Quick start
 
-`geofetch` is a python script that can be downloaded from github:
+`geofetch` is a python package that can be installed from [PyPI](https://pypi.org/project/geofetch/):
 
 ```
-git clone git@github.com:pepkit/geofetch.git
+pip install geofetch
 ```
 
 To see the command-line options, run it with `-h`:
 
-```
-python geofetch.py -h
+```console
+geofetch --help
 ```
 
 For example, you can run `geofetch` to build a PEP for your list of accessions like this:
 
-```
-python geofetch.py -i GSE##### -m path/to/metadata/folder -n PROJECT_NAME
+```console
+geofetch -i GSE##### -m path/to/metadata/folder -n PROJECT_NAME
 ```
 
