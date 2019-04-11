@@ -34,10 +34,10 @@ The `output_dir` key specifies where to save results. The `sample_annotation` ke
 "frog_4", "RNA-seq", "frog4.fq.gz"
 ```
 
-With those two simple files, you are ready to use the pepkit tools! Now, with a single line of code, you could load your metadata into R using <a href="/docs/pepr/">pepr</a>, into python using <a href="/docs/peppy/">peppy</a>, or run each sample through an arbitrary command-line pipeline using <a href="/docs/looper/">looper</a>. 
+With those two simple files, you are ready to use the pepkit tools! With a single line of code, you could load this into R using <a href="/docs/pepr/">pepr</a>, into python using <a href="/docs/peppy/">peppy</a>, or run each sample through an arbitrary command-line pipeline using <a href="/docs/looper/">looper</a>. 
 
 If you make a habit of describing all your projects like this, you'll never parse another sample annotation sheet again. You'll never write another pipeline submission loop.
 
-This simple example presents a basic, minimal, functioning PEP. In practice, there is lots more to learn about advanced features of PEP structure. You can add additional sections to your configuration ``yaml`` file and to your sample annotation ``csv`` file to tailor it for specific tools. But at its core, PEP is simple and generic; this way, you can start with the basics, and only add more complexity as you need it.
+This simple example presents a minimal functioning PEP. In practice, there are many advanced features of PEP structure. For instance, you can add additional sections to tailor your project for specific tools. But at its core, PEP is simple and generic; this way, you can start with the basics, and only add more complexity as you need it.
 
-The next sections in this documentation will introduce the advanced details of both annotation sheets and project config files.
+More advanced features are described in the <a href="/docs/sample_annotation"> docs for sample annotations</a> and <a href="/docs/project_config">docs for project config</a>.
