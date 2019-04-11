@@ -10,7 +10,7 @@ title: "geofetch"
 
 ### Quick start
 
-`geofetch` is a python package and can be installed from [pypi](https://pypi.org/project/geofetch):
+`geofetch` is a python package that can be installed from [PyPI](https://pypi.org/project/geofetch/):
 
 ```
 pip install geofetch
@@ -18,13 +18,13 @@ pip install geofetch
 
 To see the command-line options, run it with `-h`:
 
-```
-geofetch -h
+```console
+geofetch --help
 ```
 
 For example, you can run `geofetch` to build a PEP for a GSE accession like this:
 
-```
+```console
 geofetch -i GSE##### -m path/to/metadata/folder -n PROJECT_NAME
 ```
 
