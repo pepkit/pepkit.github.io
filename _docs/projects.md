@@ -23,11 +23,11 @@ If your project is PEP-compatible, please add it to this list with a [pull reque
 
 Here's `markdown` (for use on GitHub READMEs):
 ```
-[![PEP compatible](http://pepkit.github.io/img/PEP-compatible-green.svg)](http://pepkit.github.io)
+[![PEP compatible](https://pepkit.github.io/img/PEP-compatible-green.svg)](https://pepkit.github.io)
 ```
 
 Or `HTML`:
 ```
-<a href="http://pepkit.github.io"><img src="http://pepkit.github.io/img/PEP-compatible-green.svg" alt="PEP compatible" style="float:left; margin:10px"></a>
+<a href="https://pepkit.github.io"><img src="https://pepkit.github.io/img/PEP-compatible-green.svg" alt="PEP compatible" style="float:left; margin:10px"></a>
 ```
 
