@@ -1,6 +1,6 @@
 ---
-title: Sample annotation file
-#permalink: /docs/sample_annotation.html
+title: Sample table
+#permalink: /docs/sample_table.html
 ---
 
 The ``sample annotation sheet`` is a `.csv` file containing information about all samples (or pieces of data) in a project. **One row corresponds to one sample** (or, equivalently, one pipeline run).

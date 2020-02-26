@@ -1,5 +1,5 @@
 ---
-title: Sample subannotation
+title: Subsample table
 ---
 
 Occasionally, a sample will really have two or more values for a single attribute. This doesn't fit naturally into a tabular data format, but requires the one-to-many relationship that is better handled by a relational database. For these kinds of more complex relationships, PEP offers a second annotation table called `sample_subannotation`, which is added as an attribute in the `metadata` section of your `project_config`. To explain how this works, we'll use the most common example case of needing it: a single sample with multiple input files.

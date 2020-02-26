@@ -1,6 +1,22 @@
 ---
-title: Subprojects
+title: Amendments
 ---
+
+The `amendments` section of the config file allows you to include variations of the project. When a PEP is parsed, one or more amendments can be included to amend the values in the processed PEP. This is a powerful function that can be used for many purposes, such as *on the fly* tweaks or embedding multiple subprojects within a parent project.
+
+## Example
+
+```
+sample_table: annotation.csv
+amendments:
+  my_project2:
+    sample_table: annotation2.csv
+  my_project3:
+    sample_table: annotation3.csv
+````
+
+
+## Rationale
 
 At times you will want to create two projects that are very similar, but differ just in one or two attributes. For example, you may define a project with one set of samples, and then want an identical project but using a different sample annotation sheet. Or, you may define a project to run on a particular reference genome, and want to define a second project that is identical, but uses a different reference genome.
 
