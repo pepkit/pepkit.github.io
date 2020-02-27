@@ -57,3 +57,7 @@ collections:
     output: true
 
 include: ['pages']
+
+
+kramdown:
+  parse_block_html: true

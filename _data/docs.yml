@@ -2,32 +2,21 @@
   docs:
   - home 
   - user_stories
-  
-- title: Specification
+  - specification
+
+- title: Detailed how-to guides
   docs:
-  - basics
-  - project_config
-  - sample_table
-  - derived_attributes
   - implied_attributes
+  - derived_attributes
   - subsample_table
   - amendments
-
-- title: How to create a PEP manually
-  docs:
-  - simple_example
-  - example_PEPs
-
-
-- title: How to create a PEP programatically
-  docs:
   - geofetch
+  - validation
 
-- title: Reading a PEP
+- title: Implementations
   docs:
   - peppy
   - pepr
-  - looper
 
 - title: PEP in practice
   docs:

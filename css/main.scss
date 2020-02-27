@@ -76,7 +76,7 @@ body {
   }
 }
 *[id]:before {
-  display: block;
+  // display: block;  // comment out for TOC to work.
   content: " ";
   margin-top: -75px;
   height: 75px;
