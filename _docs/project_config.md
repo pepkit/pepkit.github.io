@@ -3,8 +3,7 @@ title: Project config file
 permalink: /docs/project_config/
 ---
 
-A project config file is organized into sections. Most are optional. Here are additional details on each of the configuration sections:
-
+DEPRECATED
 
 ### Project config section: `metadata`
 
@@ -16,86 +15,7 @@ Here's a minimal example with just the two required variables:
 	  sample_annotation: /path/to/sample_annotation.csv
 	  output_dir: /path/to/parent/output/folder
 
-The `sample_annotation` value can be absolute or relative; relative paths are assumed relative to the location of the `project_config.yaml` file.
-
 The `metadata` section also allows for another attribute, called `sample_subannotation`, which points to a second annotation table to accommodate samples with multiple values for one or more attributes. Most projects do not require subannotation tables, but for more details, see the advanced section on [sample subannotation](/docs/sample_subannotation).
-
-### Project config sections: `derived_attributes` and `data_sources`
-
-The sections called `derived_attributes` and `data_sources` provide a flexible way to point to data files on disk. These two sections go together (so they aren't meaningful independently; if you define one you should define the other). 
-
-The `derived_attributes` section provides a way to link short keys to variable-encoded file paths. The variables in the file paths are formatted as `{variable}`, and are populated by sample attributes (columns in the sample annotation sheet). For example, your files may be stored in `/path/to/{sample_name}.fastq`, where `{sample_name}` will be populated individually for each sample in your PEP.
-
-Example:
-
-	data_sources:
-	  key1: "/path/to/raw/data/{sample_name}_{sample_type}.bam"
-	  key2: "/path/from/collaborator/weirdNamingScheme_{external_id}.fastq"
-	  key3: "${HOME}/{test_id}.fastq"
-
-You can also use shell environment variables (like ``${HOME}``).
-
-The `derived_attributes` section simply identifies which column names (or sample attributes) should be populated as data_sources. Corresponding sample attributes will then have as their value derived from the string replacement of sample attributes specified in the config file. This enables you to point to more than one input file for each sample. 
-
-Example:
-
-```
-derived_attributes: [read1, read2, data_1]
-```
-
-For more details and a complete example, see [derived attributes](/docs/derived_attributes).
-
-### Project config section: implied_attributes
-
-``implied_attributes`` lets you infer additional attributes, which can be useful for pipeline arguments. For instance, it may that one sample attribute implies several more. Rather than encoding these each as separate, non-varying columns in the annotation sheet, you may simply indicate in the `project_config.yaml` that samples of a certain type should automatically inherit additional attributes.
-
-Example:
-
-```
-implied_attributes:
-  organism:
-    human:
-      genome: "hg38"
-      macs_genome_size: "hs"
-```
-
-This example says that any sample with `organism` attribute set to the string "human" should also automatically set additional attributes of `genome` (with value "hg38") and `macs_genome_size` (with value "hs"). These implied attributes may now be used as pipeline arguments or for other analysis.
-
-For more details, see [implied attributes](/docs/implied_attributes).
-
-### Project config section: subprojects
-
-Subprojects are useful to define multiple similar projects within a single project config file. Under the subprojects key, you can specify names of subprojects, and then underneath these you can specify any project config variables that you want to overwrite for that particular subproject.
-
-For example:
-
-```
-subprojects:
-  diverse:
-	metadata:
-	  sample_annotation: psa_rrbs_diverse.csv
-  cancer:
-	metadata:
-	  sample_annotation: psa_rrbs_intracancer.csv
-```
-
-This project would specify 2 subprojects that have almost the exact same settings, but change only their ``metadata.sample_annotation`` parameter (so, each subproject points to a different sample annotation sheet). Rather than defining two 99% identical project config files, you can use a subproject. 
-
-For more details, see [subprojects](/docs/subprojects).
-
-### Project config section: `constants`
-
-This section lets you declare additional attributes, for each of which there's a single value across all samples. This is particularly useful when combined with ``derived_attributes`` and/or ``implied_attributes``, especially when there are many samples.
-
-**Example**:
-
-```yaml
-constants:
-  data_source: src
-  read_type: SINGLE
-  organism: mouse
-```
-
 
 
 # Looper sections

@@ -4,9 +4,9 @@ permalink: /docs/home/
 redirect_from: /docs/index.html
 ---
 
-Organizing and annotating sample data is an important task in data-intensive bioinformatics, but typically each project is organized uniquely. Furthermore, each data processing tool, such as a pipeline, typically expects the same annotation information in a unique format. There is no standardized way to represent sample-heavy project metadata that spans projects and tools.
+Organizing and annotating sample data is an important task in data-intensive bioinformatics, but each project is typically organized uniquely. Furthermore, data processing tools typically expect a unique format for sample annotation. There is no standardized way to represent sample-heavy project metadata that spans projects and tools.
 
-*Portable Encapsulated Projects* (*PEP* for short) is a standardized way to organize project metadata. **A *project* is a collection of data with associated metadata.** PEPs are typically data-intensive bioinformatics projects with many samples (which could be individual experiments, organisms, cell lines, *etc.*). However, the concepts are generic and could be applied to any project that represents metadata in tabular form.In addition to providing a sample metadata format, the PEP specification also provides features that make metadata more portable. 
+*Portable Encapsulated Projects* (*PEP* for short) seeks to make projects more portable and self-contained by formally specifying a structure for project metadata. **A *project* is a collection of data with associated metadata.** PEPs are typically data-intensive bioinformatics projects with many samples (which could be individual experiments, organisms, cell lines, *etc.*). However, the concepts are generic and could be applied to any project that represents metadata in tabular form. In addition to providing a sample metadata format, the PEP specification also provides features that make metadata more portable, across both computing environments and processing tools. 
 
 <img src="/img/data-munging.svg" alt="" style="float:right; margin-left:10px" width="300px">
 
