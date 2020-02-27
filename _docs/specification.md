@@ -6,19 +6,45 @@ Table of contents:
 * The generated Toc will be an unordered list
 {:toc}
 
-## Components of a PEP
+## Introduction
 
-PEP divides metadata into project-level metadata and sample-level metadata, which are stored in separate files. A complete PEP consists of up to 3 files:
+Organizing and annotating sample data is an important task in data-intensive bioinformatics, but each dataset is typically annotated uniquely. Furthermore, data processing tools typically expect a unique format for sample annotation. There is no standard way to represent metadata that spans projects and tools. This restricts the portability and reusability of annotated datasets and software that processes them.
 
-- **Project config file** - REQUIRED. a `yaml` file describing file paths and optional project settings
-- **Sample table** - RECOMMENDED. a `csv` file with 1 row per sample
-- **Subsample table** - OPTIONAL. A `csv` file with multiple rows for each sample, used to specify sample attributes with multiple values.
+*Portable Encapsulated Projects* (*PEP* for short) seeks to make datasets and related software more portable and reusable by specifying a metadata structure. PEPs are typically data-intensive bioinformatics projects with many samples (which could be individual experiments, organisms, cell lines, *etc.*). However, the concepts are generic and could be applied to any collection of metadata represented in tabular form. The PEP specification also provides features that make metadata more portable, across both computing environments and processing tools. 
+
+## Terminology and components of a PEP
+
+In PEP parlance, **a *project* is a collection of metadata that annotates a set of samples.** A **sample** is loosely defined as any unit that can be collected together in a project. The **PEP specification** is a way to organize project and sample metadata in files, and a **PEP** is a project that follows the specification. The PEP specification divides metadata into two components: sample metadata, which can vary by sample, and project metadata, which applies to all samples. These two components are stored in separate files. A complete PEP consists of up to 3 files:
+
+- **Project config file** - REQUIRED. a `yaml` file containing project-level metadata
+- **Sample table** - RECOMMENDED. a `csv` file of sample metadata, with 1 row per sample
+- **Subsample table** - OPTIONAL. A `csv` file of sample  with multiple rows for each sample, used to specify sample attributes with multiple values.
 
 This document describes each of these 3 files in detail.
 
+## Goals and benefits of using a PEP
+
+The PEP specification has 2 primary goals:
+
+1. To make sample-heavy sample annotations more reusable. By making it easy to decouple analysis-specific or environment-specific information from the sample metadata, it becomes eas
+
+2. To make software that analyzes multi-sample datasets more reusable. applying tools to external data. 
+
+3. To provide a way to formalize required metadata and validate it. The PEP specification provides a generic schema and an easy to way to extend it so that tool developers can formally describe what sample and project metadata their tool requires. Users can then use validation to identify which software is compatible with their data.
+
+## Validating a PEP
+
+This document describes a specification for a generic PEP, which is formally described with a schema at [schema.databio.org/PEP/pep_v2.yaml](https://schema.databio.org/PEP/pep_v2.yaml). You can validate a PEP against a PEP schema using the `peppy` Python package, which is also the reference implementation of the PEP specification. Validate a generic PEP like this:
+
+```
+peppy validate path/to/your/PEP_config.yaml -s https://schema.databio.org/PEP/pep_v2.yaml
+```
+
+PEP schemas use an extended version of the [JSON-schema](https://json-schema.org/) vocabulary. The generic schema may be easily extended into a more specific schema that adds new requirements or optional attributes, requires input files, and so forth. You can find more detail about how to extend and use these schemas in the [How to guide for PEP validation](/docs/validation).
+
 ## Project config file specification
 
-The project config file is a `yaml` file, the only required file for PEP, and the primary source of project-level information. The PEP specification for the project config file recognizes six project attributes. Most are optional:
+The project config file is the source of project-level information. It is the only required file and must be in `yaml` format. The config file includes six recognized project attributes, most being optional:
 
 - `pep_format_version` - REQUIRED
 - `sample_table`- RECOMMENDED
@@ -27,10 +53,9 @@ The project config file is a `yaml` file, the only required file for PEP, and th
 - `amendments` - OPTIONAL
 - `imports` - OPTIONAL
 
-These attributes may appear in any order. The formal schema is described at [schema.databio.org/PEP/pep_v2.yaml](https://schema.databio.org/PEP/pep_v2.yaml)
+These attributes may appear in any order.
 
-
-### Example
+Example
 
 ```
 pep_format_version: 2.0
@@ -43,15 +68,18 @@ sample_modifiers:
   duplicate:
     oldattr: newattr
   imply:
-    - from: organism
-      values: ["human"]
-      to:
-        imp_arr: value
-    organism:
-      human:
-        imp_attr: value
-      mouse:
-        imp_arr: val2
+    - if:
+        genome: ["hg18", "hg19", "hg38"]
+      then:
+        organism: "human"
+    - if:
+        organism: ["human", "mouse", "Mouse"]
+      then:
+        family: "mammal"
+    - if:
+        organism: ["bird", "jay", "cardinal"]
+      then:
+        family: "aves"
   derive:
     attributes: [read1, read2, other_attr]
     sources:
@@ -68,7 +96,7 @@ imports:
 
 ### Project attribute: `pep_format_version`
 
-The only required project attribute, which documents the version of the PEP specification this PEP complies with.
+The only required project attribute, which documents the version of the PEP specification this PEP complies with. For PEP version 2.0, this must be the string `"2.0"`.
 
 ### Project attribute: `sample_table`
 
@@ -82,23 +110,41 @@ The `subsample_table` is a path (string) to the subsample csv file. Like with th
 
 The sample modifiers allows you to modify sample attributes from within the project configuration file. You can use this to add new attributes to samples in a variety of ways, including attributes whose value varies depending on values of existing attributes, or whose values are composed of existing attribute values. This is a key feature of PEP that allows you to make the sample tables more portable. There are 4 subsections corresponding to 4 types of sample modifier: `append`, `duplicate`, `imply`, and `derive`.
 
+The samples will be modified in this order: append, duplicate, imply, derive. Within each modifiers, samples will be modified in the order in which the commands are listed.
+
 #### *sample_modifiers.append*
 
-This section lets you declare additional attributes, for each of which there's a single value across all samples. This is particularly useful when combined with ``derived_attributes`` and/or ``implied_attributes``, especially when there are many samples.
+The `append` modifier adds additional sample attributes with a *constant value across all samples*. 
 
-**Example**:
+Example:
 
 ```yaml
 sample_modifiers:
   append:
-    data_source: src
     read_type: SINGLE
-    organism: mouse
 ```
+
+This example would add an attribute named `read_type` to each sample, and the value would be `SINGLE` for all samples. This modifier is useful alone to add constant attributes, and can also be  combined with `derive` and/or `imply`.
+
+
+#### *sample_modifiers.duplicate*
+
+The `duplicate` modifier copies an existing sample attribute to a new attributes with a different name. This can be useful if you need to tweak a PEP to work under a different tool that specifies a different schema for the same data.
+
+Example:
+
+```yaml
+sample_modifiers:
+  duplicate:
+    old_attribute_name: new_attribute_name
+```
+
+This example would copy the value of `old_attribute_name` to a new attribute called `new_attribute_name`.
+
 
 #### *sample_modifiers.imply*
 
-``implied`` lets you infer additional attributes, which can be useful for pipeline arguments. For instance, it may that one sample attribute implies several more. Rather than encoding these each as separate, non-varying columns in the annotation sheet, you may simply indicate in the `project_config.yaml` that samples of a certain type should automatically inherit additional attributes.
+The `imply` modifier adds sample attributes with values whose value depends on the *value* of an existing attribute. 
 
 Example:
 
@@ -111,29 +157,13 @@ sample_modifiers:
         macs_genome_size: "hs"
 ```
 
-This example says that any sample with `organism` attribute set to the string "human" should also automatically set additional attributes of `genome` (with value "hg38") and `macs_genome_size` (with value "hs"). These implied attributes may now be used as pipeline arguments or for other analysis.
+This example will take any sample with `organism` attribute set to the string "human" and add attributes of `genome` (with value "hg38") and `macs_genome_size` (with value "hs"). 
 
-For more details, see [implied attributes](/docs/implied_attributes).
-
-
-
-#### *sample_modifiers.duplicate*
-
-This modifier allows you to duplicate sample attributes to new attributes with other names. This can be useful if you need to tweak a PEP to work under a different tool that specifies a different schema for the same data.
-
-**Example**:
-
-```yaml
-sample_modifiers:
-  duplicate:
-    old_attribute_name: new_attribute_name
-```
+Implied attributes can be useful for pipeline arguments. For instance, it may that one sample attribute implies several more. Rather than encoding these each as separate columns in the annotation sheet for a particular pipeline, you may simply indicate in the `project_config.yaml` that samples of a certain type should automatically inherit additional attributes. For more details, see [implied attributes](/docs/implied_attributes).
 
 #### *sample_modifiers.derive*
 
-The sections called `derive` and `derived_sources` provide a flexible way to point to data files on disk. These two sections go together (so they aren't meaningful independently; if you define one you should define the other). 
-
-The `derived_attributes` section provides a way to link short keys to variable-encoded file paths. The variables in the file paths are formatted as `{variable}`, and are populated by sample attributes (columns in the sample annotation sheet). For example, your files may be stored in `/path/to/{sample_name}.fastq`, where `{sample_name}` will be populated individually for each sample in your PEP.
+The `derive` sample modifier provides converts existing sample attribute values into new values derived from other existing sample attribute values. It contains two sections; in `attributes` is a list of existing attributes that should be derived; in `sources` is a mapping of key-value pairs that defines the templates used to derive the new attribute values.
 
 Example:
 
@@ -142,40 +172,42 @@ sample_modifiers:
   derive:
     attributes: [read1, read2, data_1]
     sources:
-      key1: "/path/to/raw/data/{sample_name}_{sample_type}.bam"
+      key1: "/path/to/{sample_name}_{sample_type}.bam"
       key2: "/path/from/collaborator/weirdNamingScheme_{external_id}.fastq"
       key3: "${HOME}/{test_id}.fastq"
 ```
 
-You can also use shell environment variables (like ``${HOME}``).
+In this example, the samples should already have attributes named `read1`, `read2`, and `data_1`, which are flagged as attributes to derive. These attribute values should originally be set to one of the keys in the `sources` section: `key1`, `key2`, or `key3`. The `derive` modifier will replace any samples set as `key1` with the specified string (`"/path/to/{sample_name}_{sample_type}.bam"`), but with variables like `{sample_name}` populated with the values of other sample attributes. The variables in the file paths are formatted as `{variable}`, and are populated by sample attributes (columns in the sample annotation sheet). For example, your files may be stored in `/path/to/{sample_name}.fastq`, where `{sample_name}` will be populated individually for each sample in your PEP. You can also use shell environment variables (like ``${HOME}``).
 
-The `derived_attributes` section simply identifies which column names (or sample attributes) should be populated as data_sources. Corresponding sample attributes will then have as their value derived from the string replacement of sample attributes specified in the config file. This enables you to point to more than one input file for each sample. For more details and a complete example, see [derived attributes](/docs/derived_attributes).
-
+Using `derive` is a powerful and flexible way to point to data files on disk. This enables you to point to more than one input file for each sample. For more details and a complete example, see [derived attributes](/docs/derived_attributes).
 
 ### Project attribute: `amendments`
 
-Amendments are useful to define multiple similar projects within a single project config file. Under the amendments key, you can specify names of subprojects, and then underneath these you can specify any project config variables that you want to overwrite for that particular subproject.
+The `amendments` project attribute specifies variations of a project within one file. When a PEP is parsed, you may specify one or more included amendments, which will amend the values in the processed PEP.
 
 For example:
 
-```yaml
-amendments:
-  diverse:
-    sample_table: psa_rrbs_diverse.csv
-  cancer:
-    sample_table: psa_rrbs_intracancer.csv
+
 ```
+sample_table: annotation.csv
+amendments:
+  my_project2:
+    sample_table: annotation2.csv
+  my_project3:
+    sample_table: annotation3.csv
+...
+````
 
-This project would specify 2 subprojects that have almost the exact same settings, but change only their ``metadata.sample_annotation`` parameter (so, each subproject points to a different sample annotation sheet). Rather than defining two 99% identical project config files, you can use a subproject. 
+If you load this configuration file, by default it sets `sample_table` to `annotation.csv`. If you don't activate any amendments, they are ignored. But if you choose, you may activate one of the two amendments, which are called `my_project2` and `my_project3`. If you activate `my_project2`, by passing `amendments=my_project2` when parsing the PEP, the resulting object will use the `annotation2.csv` sample_table instead of the default `annotation.csv`. All other project settings will be the same as if no amendment was activated because there are no other values specified in the `my_project2` amendment.
 
-For more details, see [subprojects](/docs/subprojects).
+Amendments are useful to define multiple similar projects within a single project config file. Under the amendments key, you specify names of amendments, and then underneath these you specify any project config variables that you want to override for that particular amendment. It is also possible to activate more than one amendment in priority order, which allows you to combine different project features on-the-fly. For more details, see [amendments](/docs/amendments).
 
 
 ### Project attribute: `imports`
 
-The imports key allows the config file to import other PEP config files. The values in the imported files will be overridden by the corresponding entries in the current config file. Imports are recursive, so an imported file that imports another file is allowed; the imports are resolved in cascading order with the most distant imports happening first, so the closest configuration options override the more distant ones.
+The `imports` key allows the config file to import other PEP config files. The values in the imported files will be overridden by the corresponding entries in the current config file. Imports are recursive, so an imported file that imports another file is allowed; the imports are resolved in cascading order with the most distant imports happening first, so the closest configuration options override the more distant ones.
 
-Exmaple
+Example:
 
 ```yaml
 imports:
